@@ -14,4 +14,5 @@ def valid_appt
     errors.add(:date_time, 'Appointments Must Be Scheduled At Least One Day in Advance')
   end
 end
+
 end
