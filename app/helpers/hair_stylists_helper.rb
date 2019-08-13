@@ -1,0 +1,2 @@
+module HairStylistsHelper
+end
