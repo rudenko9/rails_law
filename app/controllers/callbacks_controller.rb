@@ -1,2 +1,0 @@
-class CallbacksController < ApplicationController
-end
