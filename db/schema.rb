@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_193908) do
+ActiveRecord::Schema.define(version: 2019_08_13_012942) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "date_time"
+    t.string "hairstyle"
+    t.string "hair_stylist"
+    t.integer "user_id"
+    t.integer "hair_stylist_id"
+    t.integer "hairstyle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hair_stylists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hairstyles", force: :cascade do |t|
+    t.string "haircut"
+    t.string "colorig"
+    t.string "haircut_and_coloring"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
