@@ -27,6 +27,40 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def show
+    @appointment = appointment
+    @user = current_user
+  end
+
+  def edit
+    if params[:user_id]
+      user = User.find_by(id: params[:user_id])
+      if user.nil?
+        redirect_to new_user_registration_path, flash[:notice] = 'User not found.'
+      else
+        @appointment = user.appointments.find_by(id: params[:id])
+        redirect_to user_appointments_path(user),
+        flash[:notice] = 'Appointment not found.' if @appointment.nil?
+      end
+    else
+      @appointment = appointment
+      @user = current_user
+    end
+  end
+
+
+
+  
+
+  private
+
+    def appointment_params
+      params.require(:appointment).permit(:reason_for_visit, :date_time, :user_id, :pet_id, :vet_provider_id)
+    end
+
+    def appointment
+      @appointment ||= Appointment.find(params[:id])
+    end
 
 
 end
