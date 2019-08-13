@@ -7,6 +7,13 @@ accepts_nested_attributes_for :appointments
 
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+        #:omniauthable, :omniauth_providers: [:github]
+
+
+
+
+
+
 
 end
