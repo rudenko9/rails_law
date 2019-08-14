@@ -48,8 +48,21 @@ class AppointmentsController < ApplicationController
     end
   end
 
+def update
+@appointment = appointment
+@appointment.update(appointment_params)
+if appointment.errors.none?
+  @user = current_user
+  redirect_to user_appointment_path(@user, @appointment)
+else
+  render :edit
+end
+end
 
-
+def destroy
+  appointment.destroy
+  redirect_to root_path
+end
 
 
   private

@@ -1,0 +1,21 @@
+<% if !@user.has_appointments %>
+<div>
+<%= link_to  "New Appointment", new_user_appointment_path(@user) %> </div>
+ <br>
+
+<h2> You do not have any appointments at this time </h2>
+<h1> Click 'New Appointment' to schedule one! </h1> <br>
+
+<% else %>
+
+<h2> Your Appointmnets </h2>
+<div>
+<%= link_to 'New Appointment', new_user_appointment_path(@user) %>
+</div>
+<% @appointment.each do |appointment|%>
+<p><b> Appointment for: </b> <%= appointment.user.name %> </p>
+<p><b> Stylist: </b><%= appointment.hair_stylist.name %> </p>
+<p><b> Date/Time: </b> <%= appointment.date_time.strftime('%b, %e, %1:%M %p') %></p>
+<br>
+<% end  %>
+<% end  %>
