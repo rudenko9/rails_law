@@ -1,0 +1,17 @@
+<%  if @appointment.errors.any? %>
+<div class="error_explanation">
+
+<h2>
+  <p>
+    <%= pluralize(@appointment.errors.count, "error") %>
+    prevented the post from being saved:
+  </p>
+  </h2>
+
+  <ul>
+    <% @appointment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
