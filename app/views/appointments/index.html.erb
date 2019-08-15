@@ -15,7 +15,7 @@
 <% @appointment.each do |appointment|%>
 <p><b> Appointment for: </b> <%= appointment.user.name %> </p>
 <p><b> Stylist: </b><%= appointment.hair_stylist.name %> </p>
-<p><b> Date/Time: </b> <%= appointment.date_time.strftime('%b, %e, %1:%M %p') %></p>
+<p><b> Date & Time: </b> <%= appointment.date_time.strftime('%b, %e, %1:%M %p') %></p>
 <br>
 <% end  %>
 <% end  %>
