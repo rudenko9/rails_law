@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-  
   before_action :user
 
   def show
 
   end
 
-  private
+    private
 
-  def user
-    @user = current_user
+    def user
+      @user = current_user
+    end
+
   end
-
-end
