@@ -4,4 +4,9 @@ class Hairstyle < ApplicationRecord
   validates :haircut, presence: true
   validates :coloring, presence: true
   validates :haircut_and_coloring, presence: true
+
+  def style_names
+     [ 'haircut', 'coloring', 'haircut_and_coloring']
+  end
+
 end
