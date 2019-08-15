@@ -1,0 +1,12 @@
+<h1> Your Style </h1>
+<br>
+<div>
+  <% @hair_styles.each do |style|%>
+  <b><p><%= style.haircut %></p></b>
+  <br>
+  <b><p><%= style.coloring %></p></b>
+  <br>
+  <b><p><%= style.haircut_and_coloring %></p></b>
+  <br>
+  <% end %>
+</div>
