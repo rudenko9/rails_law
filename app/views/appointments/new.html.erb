@@ -1,18 +1,15 @@
-<h1> Schedule New Appointment </h1>
+<h1> Dears You can schedule your New Appointment here </h1>
 <%= render partial: 'errors_form' %>
 
 <%= form_for @appointment, url: user_appointments_path(@appointment.user_id) do |f| %>
-<%= f.hidden_field :user_id %>
-<%= f.label :user %>
-<%= f.collection_select :user_id, current_user, :name  %>
-<br>
-<br>
+
+
 <%= f.label :hair_stylist %>
-<%= f.collection_select :hair_stylist_id, Hair_stylist.all, :id, name%>
+<%= f.collection_select :hair_stylist, HairStylist.stylist_names %>
 <br>
 <br>
 <%= f.label :hairstyle %>
-<%= f.select :hairstyle, Appointment.hairstyle %>
+<%= f.select :hairstyle, Appointment.style_names %>
 <br>
 <br>
 <%= f.label :date_time %>

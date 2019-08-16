@@ -1,1 +1,15 @@
 <h1> Welcome <%= @user.name %></h1>
+<div class="cards-list">
+
+<div class="card">
+<div class="card-image"> <img scr="https://github.com/rudenko9/rails_law/blob/master/public/images/hair-stylist-girl.png?raw=true" height="300", width="470"/></div>
+<h3><%= link_to "Hair Stylist", hair_stylists_path(@user)%></h3>
+</div>
+</div>
+
+
+<div class="card">
+<div class="card-image"> <img src="https://github.com/rudenko9/rails_law/blob/master/public/images/hair-cut-tool.jpeg?raw=true" height="300", width="470"/></div>
+<h3><%= link_to "My Appointments", user_appointments_path(@user)%></h3>
+</div>
+</div>

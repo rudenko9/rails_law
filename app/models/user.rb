@@ -19,6 +19,8 @@ accepts_nested_attributes_for :appointments
     end
   end
 
-
+  def has_appointments
+    !appointments.empty?
+  end
 
 end
