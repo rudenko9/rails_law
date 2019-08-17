@@ -8,8 +8,9 @@
 <br>
 
 <div>
-  <p><b>Appointment for:</b><%= @appointment.user.name %></p>
+  <p><b>Appointment for:</b><%= @appointment.user.email %></p>
   <p><b> Hair Stylist:</b><%= @appointment.hair_stylist.name %></p>
-  <p><b> Hair Style:</b><%= @appointment.hair_style %></p>
-  <p><b> Date & Time:</b><%= @appointment.date_time.strftime('%b, %e, %1:%M %p') %></p>
+  <p><b> Hair Style:</b><%= @appointment.hairstyle %>
+  </p>
+  <p><b> Date & Time:</b><%= @appointment.date_time.strftime('%b, %e, 1:%M %p') %></p>
 </div>

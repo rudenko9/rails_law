@@ -1,7 +1,7 @@
 class HairstylesController < ApplicationController
 
   def index
-  @hairstyles = Hairstyles.all 
+  @hairstyles = Hairstyles.all
   end
 
 end

@@ -8,10 +8,10 @@ class Appointment < ApplicationRecord
 
 
   def self.style_names
-     [ 'haircut', 'coloring', 'haircut_and_coloring']
-  end
+    [ 'haircut', 'coloring', 'haircut_and_coloring']
+ end
 
-  
+
 
 private
 
