@@ -4,7 +4,7 @@ class HairStylist < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true
 
-  def self.stylist_names
+  def self.name
     [ 'Matilda', 'Nicholas', 'Evan', 'Eva','Maria']
   end
 
