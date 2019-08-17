@@ -5,11 +5,11 @@
 <%= f.hidden_field :user_id, value: current_user.id %>
 
 <%= f.label :user %>
-<%= f.collection_select :user_id, current_user, :name  %>
+<%= f.collection_select :user_id, current_user.user, :name, :id  %>
 <br>
 <br>
 <%= f.label :hair_stylist %>
-<%= f.collection_select :hair_stylist_id, Hair_stylist.all, :id, :name%>
+<%= f.select :hair_stylist, HairStylist.stylist_namess %>
 <br>
 <br>
 <%= f.label :hairstyle %>
