@@ -3,11 +3,12 @@
 <body>
 
 <h2> Welcome : <%= @user.email %></h2>
+
 <div class="cards-list">
 
 <p style="text_align:left">
 <div class="card">
-<div class="card-image">  <img scr="https://github.com/rudenko9/rails_law/blob/master/public/images/Beauty-Girl-Side-.jpg" height="250", width="370"/></div>
+<div class="card-image"> <img scr="http://img.clipartlook.com/hair-20clipart-20black-20and-20white-hair-stylist-clipart-630_359.jpg" height="250", width="370"/></div> -->
 <h3><%= link_to "Hair Stylist", hair_stylists_path %></h3>
 </div>
 </p>
@@ -17,7 +18,9 @@
 <div class="card-image"> <img src="https://github.com/rudenko9/rails_law/blob/master/public/images/hair-cut-tool.jpeg?raw=true" height="250", width="370"/></div>
 <h3><%= link_to "My Appointments", user_appointments_path(@user)%></h3>
 </div>
+
 </p>
+</div>
 
 </body>
 </html>
