@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_032026) do
+ActiveRecord::Schema.define(version: 2019_08_18_212047) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date_time"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2019_08_13_032026) do
     t.string "haircut"
     t.string "colorig"
     t.string "haircut_and_coloring"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "hair_stylist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

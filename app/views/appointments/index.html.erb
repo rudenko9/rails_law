@@ -18,13 +18,15 @@
 
 <p><b> Appointment for: </b> <%= appointment.user.email %> </p>
 <p><b> Stylist: </b><%= appointment.hair_stylist.name %> </p>
-<p><b> Hair Style:</b><%= appointment.hairstyle %>
+<p><b> Hair Style: </b><%= appointment.hairstyle %>
 
-<p><b> Date & Time: </b> <%= appointment.date_time.strftime('%b, %e, %1:%M %p') %></p>
+<p><b> Date & Time: </b> <%= appointment.date_time.strftime('%b, %e, 1:%M %p') %></p>
+
 <div class="buttons">
 <%= link_to "Change Appointment", edit_user_appointment_path(appointment.user.id, appointment)%>
 </div>
 <br>
+
 <br>
 
 <% end  %>

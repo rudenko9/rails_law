@@ -1,17 +1,17 @@
-<h2> Welcome : <%= @user.email %></h2>
+<p> **********************************************************</p>
+ <h2> Welcome : <%= @user.email %></h2>
 
 <div class="cards-list">
 
-
 <div class="card">
-<div class="card-image"> <img scr="?raw=true" height="250", width="370"/></div>
+<div class="card-image"> <img scr="https://github.com/rudenko9/rails_law/blob/master/public/images/hairstylist.jpg?raw=true" height="200", width="300"/></div>
 <h3><%= link_to "Hair Stylist", hair_stylists_path %></h3>
 </div>
 
 
 
 <div class="card">
-<div class="card-image"> <img src="https://github.com/rudenko9/rails_law/blob/master/public/images/hair-cut-tool.jpeg?raw=true" height="250", width="370"/></div>
+<div class="card-image"> <img src="https://github.com/rudenko9/rails_law/blob/master/public/images/hair-cut-tool.jpeg?raw=true" height="200", width="300"/></div>
 <h3><%= link_to "My Appointments", user_appointments_path(@user)%></h3>
 </div>
 

@@ -4,7 +4,7 @@
 <%= form_for @appointment, url: user_appointment_path(@appointment.user_id, @appointment) do |f|%>
  <%= f.hidden_field :user_id, value: current_user.id %>
 
-<%# <%= f.label :user %> %>
+<%# <%= f.label :user %> 
 
 <%# <%= f.collection_select :user_id, current_user.user, :name, :id  %>
 <br>
