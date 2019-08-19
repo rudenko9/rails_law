@@ -1,0 +1,24 @@
+<% if !@user.has_reviews %>
+<div>
+<%= link_to  "Create Review", new_user_review_path(@user) %></div>
+<br>
+<h2> You did not create any reviews </h2>
+<h1> Click 'Create Review' to write one! </h1> <br>
+<br>
+ <% else %>
+<h2> Your Reviews !!! </h2>
+
+<br>
+<br>
+<div>
+<% @reviews.each do |review|%>
+<%= review.content %>
+<% end %>
+</div>
+<br>
+<div class="buttons">
+<%= link_to "Create Review", new_user_review_path(@user) %>
+</div>
+
+
+<% end %>

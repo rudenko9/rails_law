@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
+  resources :users, only: [:show] do
+    resources :reviews 
+  end
+
   resources :appointments
+  resources :reviews
 
   resources :hair_stylists
   resources :hairstyles
