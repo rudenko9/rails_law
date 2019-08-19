@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resources :reviews 
+    resources :reviews#, only: [:index, :show, :new, :create]
   end
 
-  resources :appointments
+  #resources :appointments
   resources :reviews
 
   resources :hair_stylists

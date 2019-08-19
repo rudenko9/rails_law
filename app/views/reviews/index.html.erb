@@ -1,24 +1,27 @@
-<% if !@user.has_reviews %>
+<%# <% if !@user.has_reviews %>
+<br>
+<h2> If you did not create any reviews </h2>
+<h2> Click 'Create Review' to write one! </h2> <br>
 <div>
 <%= link_to  "Create Review", new_user_review_path(@user) %></div>
 <br>
-<h2> You did not create any reviews </h2>
-<h1> Click 'Create Review' to write one! </h1> <br>
-<br>
- <% else %>
-<h2> Your Reviews !!! </h2>
 
-<br>
+ <%# <% else %>
+<h2> You can read your reviews below!!! </h2>
+<!-- <div> -->
+<%# <%= link_to "Delete Review", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>
+<!-- </div> -->
+
 <br>
 <div>
 <% @reviews.each do |review|%>
+<p><b> Review was left by: </b> <%= review.user.email %> </p>
+<p><b> For stylist: </b><%= review.hair_stylist.name %> </p>
 <%= review.content %>
 <% end %>
 </div>
 <br>
-<div class="buttons">
-<%= link_to "Create Review", new_user_review_path(@user) %>
-</div>
-
-
-<% end %>
+<!-- <div> -->
+<%# <%= link_to "Delete Review", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>
+<!-- </div> -->
+ <%# <% end %>

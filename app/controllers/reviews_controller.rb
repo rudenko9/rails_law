@@ -33,17 +33,17 @@ def show
   @user = current_user
 end
 
-def destroy
-  review.destroy
-  redirect_to root_path
-end
-
 def edit
 
 end
 
 def update
 
+end
+
+def destroy
+  review.destroy
+  redirect_to root_path
 end
 
 private
