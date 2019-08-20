@@ -23,4 +23,6 @@ HairStylist.create({:name => 'Nicholas'} )
 
 
 
+
+
 end

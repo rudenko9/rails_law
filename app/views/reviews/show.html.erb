@@ -1,8 +1,8 @@
 <!-- <h2> You did not create any reviews </h2> -->
 <!-- <h1> Click 'Create Review' to write one! </h1> <br> -->
 
-<!-- <div> -->
-<%# <%= link_to 'Create Review', new_user_review_path(@user) %>
+ <div>
+<%= link_to 'Create Review', new_user_review_path(@user) %>
 <!-- </div> -->
 <p><h1> You can check all the reviews for Stylists here </h1></p>
 <br>
@@ -15,11 +15,7 @@
 
 <% @user.reviews.each do |review|%>
 <%= review.content %>
-
-
-<!-- <div class="buttons"> -->
 <%= link_to "Delete Review", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>
-</div>
 <% end %>
 
 <br>
