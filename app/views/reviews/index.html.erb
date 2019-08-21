@@ -14,7 +14,9 @@
 <% @user.reviews.each do |review|%>
 <p><b> Review was left by: </b> <%= review.user.email %> </p>
 <p><b> For stylist: </b><%= review.hair_stylist.name %> </p>
+
 <%= review.content %>
+<%= link_to "Delete Review", user_review_path(review.user.id, review), method: :delete, data: {confirm: "Are you sure?"}%>
 <% end %>
 </div>
 <br>
@@ -23,6 +25,6 @@
 <%= link_to  "Create Review", new_user_review_path(@user) %></div>
 <br>
  <!-- <div> -->
-   <%# <%= link_to "Delete Review", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>
+
    <!-- </div> -->
 <% end %>

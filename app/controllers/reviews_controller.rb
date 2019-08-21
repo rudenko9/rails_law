@@ -29,7 +29,7 @@ def create
 end
 
 def show
-  @review = review
+  @review = Review.find_by(id: params[:id])
   @user = current_user
 end
 
@@ -42,7 +42,7 @@ def update
 end
 
 def destroy
-  review.destroy
+  Review.find_by(id: params[:id]).destroy
   redirect_to root_path
 end
 
@@ -52,9 +52,9 @@ def review_params
   params.require(:review).permit(:content, :user_id, :hair_stylist_id)
 end
 
-def review
-  @review ||= Review.find(params[:id])
-end
+#def current_review
+#  @review ||= Review.find(params[:id])
+#end
 
 
 end
