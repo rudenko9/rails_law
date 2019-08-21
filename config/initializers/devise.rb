@@ -259,7 +259,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, '4ec74047e4982bc0b172', '280ce88f339c7873460dc8aa2d5258290d318883'#, scope: 'user,public_repo'
+  config.omniauth :github, '4ec74047e4982bc0b172', '280ce88f339c7873460dc8aa2d5258290d318883', scope: 'user:email'
 
 
 
