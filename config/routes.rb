@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'users#show'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  #resources :users
+  resources :users
 
   resources :users, only: [:show] do
     resources :appointments
