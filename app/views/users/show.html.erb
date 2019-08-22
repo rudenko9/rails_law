@@ -8,14 +8,12 @@
 <h3><%= link_to "My Appointments", user_appointments_path(@user)%></h3>
 </div>
 <br>
-
-<div class="card">
-<!-- <div class="card-image"> <img scr="https://github.com/rudenko9/rails_law/blob/master/public/images/hairstylist.jpg?raw=true" height="200", width="300"/></div> -->
+<div>
 <h3><%= link_to "Hair Stylist", hair_stylists_path %></h3>
 </div>
 
-<div class="card_image">
-  <h3><%= link_to "Your Reviews", user_reviews_path(@user, @review) %> </h3>
+<div >
+  <h3><%= link_to "Your Comments", user_reviews_path(@user, @review) %> </h3>
 </div>
 
 

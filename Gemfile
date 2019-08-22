@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'omniauth'
 gem 'omniauth-github'
 gem 'devise'
 gem 'active_model_serializers'

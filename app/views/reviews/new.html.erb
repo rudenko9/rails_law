@@ -1,5 +1,5 @@
 <h2> <p> Dear : <%= @review.user.email %> </p></h2>
-<h3> You can create your review here </h3>
+<h3> You can create your comment here </h3>
 <%# <%= render partial: 'appointment/errors_form' %>
 
 <%= form_for @review, url: user_reviews_path(@review.user_id) do |f| %>

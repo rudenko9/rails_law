@@ -1,12 +1,13 @@
 class ReviewsController < ApplicationController
 
 def index
+
   if params[:user_id]
  @reviews = User.find(params[:user_id]).reviews
-   @user = User.find(params[:user_id])
+  @user = User.find(params[:user_id])
   else
       redirect_to user_review_path
-    end
+     end
   end
 
 def new
@@ -53,7 +54,7 @@ def review_params
 end
 
 #def current_review
-#  @review ||= Review.find(params[:id])
+ #@review ||= Review.find(params[:id])
 #end
 
 
