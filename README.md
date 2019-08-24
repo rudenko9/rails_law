@@ -9,18 +9,11 @@ Things you may want to cover:
 
 * Ruby version  ruby '2.6.1'
 
-* System dependencies
+* Build with  :ruby on rails
+do not forget to run : rake db:migrate
+                       rake db:seed  
 
-* Configuration
 
-* Database creation
+* How to run the test suite : rails s
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* License : MIT License
