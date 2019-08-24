@@ -7,7 +7,7 @@ def github
         set_flash_message(:notice, :success, :kind => "Github") if is_navigational_format?
       else
         session["devise.github_data"] = request.env["omniauth.auth"]
-        redirect_to  new_user_registrational_url #user_session_url
+        redirect_to  new_user_registrational_url
      end
     end
 
