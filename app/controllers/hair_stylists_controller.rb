@@ -23,7 +23,9 @@ HairStylist.create({:name => 'Nicholas'} )
 
 def most_appointments
 
-@hairstylist = HairStylist.max_appointments
+@stylist = HairStylist.max_appointments # [hair_stylist_id , total of appointments]
+@hairstylist = HairStylist.find_by_id(@stylist[0])
+@count_appointments = @stylist[1]
 
 end
 

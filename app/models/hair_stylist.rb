@@ -3,11 +3,8 @@ class HairStylist < ApplicationRecord
   has_many :reviews
   has_many :appointments
   validates :name, presence: true
-  #validates :image, presence: true
-
-scope :max_appointments, -> {where(id: Appointment.maximum(:hair_stylist_id)).first}
 
 
-
+scope :max_appointments, -> {Appointment.group(:hair_stylist_id).order('count_id DESC').count(:id).first}
 
 end

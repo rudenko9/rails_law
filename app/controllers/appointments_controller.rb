@@ -65,6 +65,8 @@ def destroy
 end
 
 
+
+
   private
 
     def appointment_params
