@@ -35,6 +35,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'devise'
 gem 'active_model_serializers'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
