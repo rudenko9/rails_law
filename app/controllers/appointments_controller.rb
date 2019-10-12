@@ -3,6 +3,9 @@ class AppointmentsController < ApplicationController
     if params[:user_id]
       @appointments = User.find(params[:user_id]).appointments
       @user = User.find(params[:user_id])
+      respond_to do |format|
+        format.html {render :index}
+        format.json { render json: @appointments }
     else
       redirect_to user_appointments_path
     end
