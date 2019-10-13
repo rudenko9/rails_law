@@ -10,32 +10,32 @@ class Appointment {
     this.hasInfo = obj.hasInfo
   }
 
-createAppointment() {
-return `
-<hr/>
-<div>
-
-${this.hasInfo
-  ? `
-  <p><b> Appointment for: </b> ${this.email}</p>
-  <p><b> Stylist: </b> ${this.hair_stylist_name}</p>
-  <p><b> Hair Style: </b> ${this.hairstyle } </p>
-  `
-: `
-  <p><b> Date & Time: </b> ${new Date(this.date_time).toDateString()}</p>
-  <a href=${`http://localhost:3000/users/${this.user_id}/appointments/${this.appointment_id}`}>More Info</a>
-  `
-}
-
-<hr/>
-</div>
-`
-	}
-
-
 	renderAppointment() {
 
 		const apptBlock = document.getElementById('apptBlock');
 		apptBlock.innerHTML += this.createAppointment();
 	}
+}
+
+
+Appointment.prototype.createAppointment = function() {
+  return `
+  <hr/>
+  <div>
+
+  ${this.hasInfo
+    ? `
+    <p><b> Appointment for: </b> ${this.email}</p>
+    <p><b> Stylist: </b> ${this.hair_stylist_name}</p>
+    <p><b> Hair Style: </b> ${this.hairstyle } </p>
+    `
+  : `
+    <p><b> Date & Time: </b> ${new Date(this.date_time).toDateString()}</p>
+    <a href=${`http://localhost:3000/users/${this.user_id}/appointments/${this.appointment_id}`}>More Info</a>
+    `
+  }
+
+  <hr/>
+  </div>
+  `
 }
