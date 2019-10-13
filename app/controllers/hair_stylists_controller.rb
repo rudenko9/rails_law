@@ -3,7 +3,11 @@ class HairStylistsController < ApplicationController
   def index
     @hair_stylists = HairStylist.all
 
+    respond_to do |format|
+      format.html {render :index}
+      format.json { render json: @hair_stylists }
   end
+end 
 
   def new
 HairStylist.create({:name => 'Nicholas'} )

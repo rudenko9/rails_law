@@ -3,10 +3,11 @@ class AppointmentsController < ApplicationController
     if params[:user_id]
       @appointments = User.find(params[:user_id]).appointments
       @user = User.find(params[:user_id])
+
       respond_to do |format|
         format.html {render :index}
-        format.json { render json: @appointments }
-      end 
+        format.json { render json:  {appointments: @appointments, user: @user}}
+      end
     else
       redirect_to user_appointments_path
     end
@@ -26,8 +27,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @user = current_user
     if @appointment.save
-    render json: @appointment
-
+      render json: @appointment
     else
       render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
     end

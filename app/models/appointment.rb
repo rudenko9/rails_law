@@ -5,6 +5,9 @@ class Appointment < ApplicationRecord
   validate :valid_appt
   belongs_to :user
   belongs_to :hair_stylist
+  has_many :hair_stylists
+
+
 
 
   def self.style_names

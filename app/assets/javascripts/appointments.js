@@ -1,15 +1,27 @@
-$(function () {
-	console.log('posts.js is loaded ...')
-
-});
-
 class Appointment {
   constructor(obj) {
-		this.date_time = obj.date_time,
-		this.hairstyle = obj.hairstyle,
-		this.hair_stylist = obj.hair_stylist,
-		this.user_id = obj.user_id,
-    this.hair_stylist_id = obj.hair_stylist_id,
-    this.hairstyle_id = obj.hairstyle_id
+		this.email = obj.user.email
+		this.appointment_id = obj.appointments.id
+		this.hair_stylist_id = obj.appointments.hair_stylist.id
+		this.hair_stylist_name = obj.appointments.hair_stylist.name
+		this.hairstyle = obj.appointments.hairstyle
+		this.date_time = obj.appointments.date_time
   }
+
+createAppointment() {
+return `
+<div>
+<p><b> Appointment for: </b> ${this.email}</p>
+<p><b> Stylist: </b> ${this.hair_stylist_name}</p>
+<p><b> Hair Style: </b> ${this.hairstyle } </p>
+<p><b> Date & Time: </b> ${this.date_time.toDateString}</p>
+</div>
+`
+	}
+}
+
+renderAppointment() {
+
+	const apptBlock = document.getElementById('apptBlock')
+	apptBlock.innerHTML += this.createAppointment();
 }
