@@ -1,8 +1,11 @@
 class AppointmentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     if params[:user_id]
-      @appointments = User.find(params[:user_id]).appointments
-      @user = User.find(params[:user_id])
+       @appointments = User.find(params[:user_id]).appointments
+       @list_of_hairstylist = HairStylist.all
+       @user = User.find(params[:user_id])
 
       respond_to do |format|
         format.html {render :index}
@@ -12,7 +15,27 @@ class AppointmentsController < ApplicationController
       redirect_to user_appointments_path
     end
   end
-
+  def create
+      @appointment = Appointment.new(appointment_params)
+      if @appointment.save
+        @user = current_user
+        redirect_to user_appointment_path(@user, @appointment)
+      else
+        render :new
+      end
+    end
+  #def create
+    # @hair_stylist_founded = HairStylist.find(params[:hair_stylist_id])
+    # @appointment = Appointment.create({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
+    #
+    # render json: {appointmentinfo:   @appointment }
+    #@appointment.user = current_user
+    #if @appointment.save
+  #    render json: @appointment
+  #  else
+  #    render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
+  #  end
+  #end
 
   def new
     if params[:user_id] && !User.exists?(params[:user_id])
@@ -23,22 +46,16 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def create
-    @appointment = Appointment.new(appointment_params)
-    @user = current_user
-    if @appointment.save
-      render json: @appointment
-    else
-      render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
-    end
-  end
+
 
   def show
     @appointment = appointment
     @user = current_user
+    @apptId = params[:id]
+
     respond_to do |format|
       format.html {render :show}
-      format.json { render json: @appointments }
+      format.json {render json: @user}
   end
 end
 

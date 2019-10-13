@@ -1,15 +1,6 @@
 <p><h1> Your Appointment is Confirmed </h1></p>
 <br>
-
-<div>
-  <p><b>Appointment for: </b><%= @appointment.user.email %></p>
-  <p><b> Hair Stylist: </b><%= @appointment.hair_stylist.name %></p>
-  <p><b> Hair Style: </b><%= @appointment.hairstyle %>
-  </p>
-  <p><b> Date & Time:</b><%= @appointment.date_time.strftime('%b, %e, 1:%M %p') %></p>
-</div>
-<br>
-<br>
+<div id='apptBlock' data-user_id='<%= @user.id %>' data-appt_id='<%= @apptId %>'></div>
 
 <div class="buttons">
 <%= link_to "Cancel Appointment", user_appointment_path(@appointment.user.id, @appointment), method: :delete, data: {confirm: "Are you sure?"}%>
@@ -18,4 +9,39 @@
 <div class="buttons">
 <%= link_to "Change Appointment", edit_user_appointment_path(@appointment.user.id, @appointment)%>
 </div>
-<br>
+
+
+  <script type="text/javascript">
+
+    (function() {
+      const userId = document.getElementById('apptBlock').dataset.user_id;
+      const apptID = document.getElementById('apptBlock').dataset.appt_id;
+
+      const checkStatus = response =>
+            (response.status === 200)
+            ? Promise.resolve(response)
+            : Promise.reject(new Error(response.statusText));
+
+          const handleError = err => {
+            console.error(err);
+            alert('Has some issues to handle your request.');
+          };
+
+          fetch(`http://localhost:3000/users/${userId}/appointments/${apptID}.json`)
+          .then(checkStatus)
+          .then(res => res.json())
+          .then(json => {
+            console.log(json);
+            const {email, id, appointments} = json;
+            const user = {email, id};
+            const selectedAppt = appointments.find(appt => appt.id === Number(apptID));
+
+
+            const selectedAppointment = new Appointment({appointments: selectedAppt, user, hasInfo: true});
+            selectedAppointment.renderAppointment();
+          })
+          .catch(handleError)
+
+    })()
+
+  </script>

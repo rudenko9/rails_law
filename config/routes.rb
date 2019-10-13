@@ -19,6 +19,7 @@ get '/hair_stylists/most', to: 'hair_stylists#most_appointments'
 
 
   resources :hairstyles
+  resources :appointments
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

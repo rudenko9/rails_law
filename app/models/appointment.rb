@@ -2,10 +2,9 @@ class Appointment < ApplicationRecord
   validates :date_time, presence: true
   validates :hair_stylist, presence: true
   validates :hairstyle, presence: true
-  validate :valid_appt
+  #validate :valid_appt
   belongs_to :user
   belongs_to :hair_stylist
-  has_many :hair_stylists
 
 
 

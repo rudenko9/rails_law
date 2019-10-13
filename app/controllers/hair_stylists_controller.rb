@@ -7,7 +7,7 @@ class HairStylistsController < ApplicationController
       format.html {render :index}
       format.json { render json: @hair_stylists }
   end
-end 
+end
 
   def new
 HairStylist.create({:name => 'Nicholas'} )

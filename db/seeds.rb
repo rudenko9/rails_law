@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 HairStylist.create(name: 'Henry')
 HairStylist.create(name: 'Sandy')
+#HairStylist.create(name: 'Valera')
