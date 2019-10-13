@@ -1,34 +1,72 @@
-<% if !@user.has_appointments %>
-<div>
-<%= link_to  "New Appointment", new_user_appointment_path(@user) %> </div>
- <br>
-
-<h2> You do not have any appointments at this time </h2>
-<h1> Click 'New Appointment' to schedule one! </h1> <br>
-
-<% else %>
 
 <h2> Your Appointmnets </h2>
-<div>
-<%= link_to 'New Appointment', new_user_appointment_path(@user) %>
-</div>
 
-
-<% @appointments.each do |appointment|%>
-
-<p><b> Appointment for: </b> <%= appointment.user.email %> </p>
-<p><b> Stylist: </b><%= appointment.hair_stylist.name %> </p>
-<p><b> Hair Style: </b><%= appointment.hairstyle %>
-
-<p><b> Date & Time: </b> <%= appointment.date_time.strftime('%b, %e, 1:%M %p') %></p>
-
-<div class="buttons">
-<%= link_to "Change Appointment", edit_user_appointment_path(appointment.user.id, appointment)%>
-</div>
+<form id="new-appointment_form" data-user_id="<%= current_user.id %>">
+  <h3> Appointment for: <%= current_user.email %></h3>
+<label for="new-appointment_hair_stylist"> Hair Stylist </label>
+<select id="new-appointment_hair_stylist" value="Mia">
+      <option value="Mia">Mia</option>
+      <option value="Matilda"> Matilda</option>
+      <option value="Eva">Eva</option>
+      <option value="Evan">Evan</option>
+      <option value="Nicholas">Nicholas </option>
+      <option value="Henry">Henry</option>
+      <option value="Sandy">Sandy</option>
+</select>
+<br>
 <br>
 
+<label for="new-appointment_hairstyle"> Hairstyle </label>
+<select id="new-appointment_hairstyle" value="haircut">
+      <option value="haircut">haircut</option>
+      <option value="coloring"> coloring</option>
+      <option value="haircut_and_coloring">haircut_and_coloring</option>
+</select>
+<br>
 <br>
 
-<% end  %>
+<label for="new-appointment_date_time"> Date & Time : </label>
+<input id="new-appointment_date_time" type="date" required >
 
-<% end  %>
+<button id="new-appointment_create"> Create Appointment</button>
+
+</form>
+
+
+<div id='apptBlock' data-user_id='<%= current_user.id %>'></div>
+
+<% end %>
+
+
+<script type="text/javascript">
+
+  (function() {
+    const userId = document.getElementById('apptBlock').dataset.user_id
+
+    const checkStatus = response =>
+          (response.status === 200)
+          ? Promise.resolve(response)
+          : Promise.reject(new Error(response.statusText));
+
+        const handleError = err => {
+          console.error(err);
+          alert('Has some issues to handle your request.');
+        };
+        fetch(`http://localhost:3000/users/${userId}/appointments.json`)
+        .then(checkStatus)
+        .then(res => res.json())
+        .then(json => {
+          const user = json.user; // {}
+          const appointments = json.appointments; // []
+
+          appointments.forEach(appointments => {
+            const newAppointment = new Appointment({appointments, user});
+            newAppointment.renderAppointment();
+          })
+        })
+
+        .catch(handleError)
+
+  })()
+
+</script>
