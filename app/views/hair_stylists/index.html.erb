@@ -1,13 +1,36 @@
-<h1> Stylist List </h1>
-<br>
-<p>*****************************************************************</p>
-<div>
-<% @hair_stylists.each do |stylist|%>
-<b><p><%= stylist.name %></p></b>
-<br>
-<% end %>
-</div>
+<h1> Your Hair Stylist List </h1>
+<div id='hair_stylists_box'></div>
 
-<%# <%= form_tag hair_stylist_path(stylist.id), method: "delete" do %>
-  <%# <%= submit_tag "Delete #{stylist.name}" %>
-<%# <% end %>
+<script type="text/javascript">
+
+(function() {
+
+  const checkStatus = response =>
+        (response.status === 200)
+        ? Promise.resolve(response)
+        : Promise.reject(new Error(response.statusText));
+
+      const handleError = err => {
+        console.error(err);
+        alert('Has some issues to handle your request.');
+      };
+fetch('http://localhost:3000/hair_stylists.json')
+.then(checkStatus)
+.then(res => res.json())
+.then(res => {
+ const style_listbox = document.getElementById('hair_stylists_box');
+
+
+res.forEach (({name, appointments}) => {
+  style_listbox.innerHTML += `
+  <h4> ${name}, has : <span> ${appointments.length}</span> appointments.</h4>
+  `
+})
+
+
+})
+.catch(checkStatus)
+
+})()
+
+</script>
