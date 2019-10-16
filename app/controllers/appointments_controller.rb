@@ -15,27 +15,31 @@ class AppointmentsController < ApplicationController
       redirect_to user_appointments_path
     end
   end
-  def create
-      @appointment = Appointment.new(appointment_params)
-      if @appointment.save
-        @user = current_user
-        redirect_to user_appointment_path(@user, @appointment)
-      else
-        render :new
-      end
-    end
   #def create
-    # @hair_stylist_founded = HairStylist.find(params[:hair_stylist_id])
-    # @appointment = Appointment.create({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
-    #
-    # render json: {appointmentinfo:   @appointment }
-    #@appointment.user = current_user
-    #if @appointment.save
-  #    render json: @appointment
-  #  else
-  #    render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
+  #    @appointment = Appointment.new(appointment_params)
+  #    if @appointment.save
+  #      @user = current_user
+  #      redirect_to user_appointment_path(@user, @appointment)
+  #    else
+  #      render :new
+  #    end
   #  end
-  #end
+  def create
+     @hair_stylist_founded = HairStylist.find(params[:hair_stylist_id])
+     @appointment = Appointment.create({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
+     render json: {appointmentinfo:   @appointment }
+    @appointment.user = current_user
+    #respond_to do |format|
+    if @appointment.save
+      #format.js
+      #format.html {redirect_to @appointment}
+      #format.json {render :show, status: :created, location: @appointment}
+     #render json: @appointment
+   else
+     render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
+  end
+  end
+
 
   def new
     if params[:user_id] && !User.exists?(params[:user_id])

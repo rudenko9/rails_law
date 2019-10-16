@@ -5,6 +5,7 @@
   <h3> Appointment for: <%= current_user.email %></h3>
 
   <label for="new-appointment_hair_stylist"> Hair Stylist </label>
+  <!-- <select id="new-appointment_hair_stylist" value=" select stylist" required > -->
   <select id="new-appointment_hair_stylist" value=" select stylist" required >
 
   <% @list_of_hairstylist.each do |stylist| %>
@@ -112,9 +113,10 @@
        method: "POST",
        body: JSON.stringify(data),
        headers:{
-         'Content-Type': 'application/json'
-       },
+       'Content-Type': 'application/json'
+      },
      };
+
      fetch(`http://localhost:3000/users/${userId}/appointments`, options)
      .then(checkStatus)
      .then(res => res.json())
