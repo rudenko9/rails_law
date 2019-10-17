@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
 
   resources :reviews
-get '/hair_stylists/most', to: 'hair_stylists#most_appointments'
+
+  get '/hair_stylists/most', to: 'hair_stylists#most_appointments'
+
   resources :hair_stylists
 
 
