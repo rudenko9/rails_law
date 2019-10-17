@@ -14,6 +14,7 @@ class Appointment {
 
 		const apptBlock = document.getElementById('apptBlock');
 		apptBlock.innerHTML += this.createAppointment();
+    
 	}
 }
 

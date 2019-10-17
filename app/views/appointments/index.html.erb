@@ -9,14 +9,11 @@
   <select id="new-appointment_hair_stylist" value=" select stylist" required >
 
   <% @list_of_hairstylist.each do |stylist| %>
-
-    <option value="<%= stylist.id %>">
+      <option value="<%= stylist.id %>">
       <%= stylist.name %>  id: <%= stylist.id %>
-    </option>
+      </option>
   <% end %>
-
   </select>
-
 
 <br>
 <br>
@@ -27,6 +24,7 @@
       <option value="coloring"> coloring</option>
       <option value="haircut_and_coloring">haircut_and_coloring</option>
 </select>
+
 <br>
 <br>
 
@@ -34,7 +32,7 @@
 <input id="new-appointment_date_time" type="date" required >
 
 
-<button id="new-appointment_create"> Create Appointment</button>
+<button id="new-appointment_create"> Create Appointment </button>
 
 </form>
 
@@ -67,6 +65,7 @@
           appointments.forEach(appointments => {
             const newAppointment = new Appointment({appointments, user, hasInfo: false});
             newAppointment.renderAppointment();
+
           })
         })
 
@@ -93,6 +92,8 @@
       const createButton = document.getElementById("new-appointment_create");
       createButton.addEventListener('click', handleCreateAppointment);
 
+
+
       function handleCreateAppointment(event) {
 
         const form = document.getElementById('new-appointment_form');
@@ -113,7 +114,7 @@
        method: "POST",
        body: JSON.stringify(data),
        headers:{
-       'Content-Type': 'application/json'
+       'Content-Type': 'application/json', Accept: "application/json"
       },
      };
 
@@ -122,7 +123,9 @@
      .then(res => res.json())
      .then(json => {
        console.log(json);
-     })
+
+      }
+     )
      .catch(handleError)
 
       }
