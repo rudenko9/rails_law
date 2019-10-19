@@ -123,6 +123,12 @@
      .then(res => res.json())
      .then(json => {
        console.log(json);
+       const newAppointment = new Appointment({
+         appointments: json.appointmentInfo,
+         user: json.user,
+         hasInfo: false
+       });
+       newAppointment.renderAppointment()
 
       }
      )

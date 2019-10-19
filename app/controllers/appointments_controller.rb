@@ -27,8 +27,9 @@ class AppointmentsController < ApplicationController
   def create
      @hair_stylist_founded = HairStylist.find(params[:hair_stylist_id])
      @appointment = Appointment.create({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
-     render json: {appointmentinfo:   @appointment }
     @appointment.user = current_user
+    @user = User.find(params[:user_id])
+     render json: {appointmentInfo: @appointment, user: @user}
     #respond_to do |format|
     if @appointment.save
       #format.js

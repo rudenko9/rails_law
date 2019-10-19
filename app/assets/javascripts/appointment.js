@@ -11,10 +11,9 @@ class Appointment {
   }
 
 	renderAppointment() {
-
 		const apptBlock = document.getElementById('apptBlock');
 		apptBlock.innerHTML += this.createAppointment();
-    
+
 	}
 }
 
@@ -32,7 +31,7 @@ Appointment.prototype.createAppointment = function() {
     `
   : `
     <p><b> Date & Time: </b> ${new Date(this.date_time).toDateString()}</p>
-    <a href=${`http://localhost:3000/users/${this.user_id}/appointments/${this.appointment_id}`}>More Info</a>
+    <a href="http://localhost:3000/users/${this.user_id}/appointments/${this.appointment_id}">More Info</a>
     `
   }
 
