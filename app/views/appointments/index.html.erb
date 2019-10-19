@@ -124,7 +124,7 @@
      .then(checkStatus)
      .then(res => res.json())
      .then(json => {
-       //console.log(json);
+       console.log('json returned from server',json.appointmentInfo);
        const newAppointment = new Appointment({
          appointments: json.appointmentInfo,
          user: json.user,

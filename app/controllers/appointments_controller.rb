@@ -26,19 +26,16 @@ class AppointmentsController < ApplicationController
   #  end
   def create
      @hair_stylist_founded = HairStylist.find(params[:hair_stylist_id])
-     @appointment = Appointment.create({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
-    @appointment.user = current_user
-    @user = User.find(params[:user_id])
-     render json: {appointmentInfo: @appointment, user: @user}
-    #respond_to do |format|
+     @appointment = Appointment.new({:hair_stylist => @hair_stylist_founded, hairstyle: params[:hairstyle], date_time: params[:date_time]})
+     @appointment.user = current_user
+     @appointment.save
+     @user = User.find(params[:user_id])
+
     if @appointment.save
-      #format.js
-      #format.html {redirect_to @appointment}
-      #format.json {render :show, status: :created, location: @appointment}
-     #render json: @appointment
-   else
+      render json: {appointmentInfo: @appointment, user: @user}
+    else
      render json: {status: "error", code: 400, message: [@appointment.errors.full_messages]}
-  end
+   end
   end
 
 
