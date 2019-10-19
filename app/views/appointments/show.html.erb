@@ -36,7 +36,7 @@
             const user = {email, id};
             const selectedAppt = appointments.find(appt => appt.id === Number(apptID));
 
-
+// Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend.
             const selectedAppointment = new Appointment({appointments: selectedAppt, user, hasInfo: true});
             selectedAppointment.renderAppointment();
           })

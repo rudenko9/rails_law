@@ -20,7 +20,8 @@ fetch('http://localhost:3000/hair_stylists.json')
 .then(res => {
  const style_listbox = document.getElementById('hair_stylists_box');
 
-
+ // Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.
+//Your Rails application must reveal at least one `has-many` relationship through JSON that is then rendered to the page.
 res.forEach (({name, appointments}) => {
   style_listbox.innerHTML += `
   <h4> ${name}, has : <span> ${appointments.length}</span> appointments.</h4>

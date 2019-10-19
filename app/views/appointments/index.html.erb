@@ -62,6 +62,8 @@
           const user = json.user; // {}
           const appointments = json.appointments; // []
 
+
+  // Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.
           appointments.forEach(appointments => {
             const newAppointment = new Appointment({appointments, user, hasInfo: false});
             newAppointment.renderAppointment();
@@ -122,7 +124,7 @@
      .then(checkStatus)
      .then(res => res.json())
      .then(json => {
-       console.log(json);
+       //console.log(json);
        const newAppointment = new Appointment({
          appointments: json.appointmentInfo,
          user: json.user,
