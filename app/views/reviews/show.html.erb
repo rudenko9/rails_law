@@ -1,25 +1,25 @@
 <!-- <h2> You did not create any reviews </h2> -->
 <!-- <h1> Click 'Create Review' to write one! </h1> <br> -->
 
- <div>
-<%= link_to 'Create Comment', new_user_review_path(@user) %>
+ <!-- <div> -->
+<%# <%= link_to 'Create Comment', new_user_review_path(@user) %> %>
 <!-- </div> -->
-<p><h1> You can check all the comments  here </h1></p>
-<br>
+<!-- <p><h1> You can check all the comments  here </h1></p> -->
+<!-- <br> -->
 
-<div>
+<!-- <div> -->
   <p><b> Comment from: </b><%= @review.user.email %></p>
   <p><b> For Hair Stylist: </b><%= @review.hair_stylist.name %></p>
 
-</div>
+<!-- </div> -->
 
-<% @user.reviews.each do |review|%>
-<%= review.content %>
-<%= link_to "Delete Comment", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>
-<% end %>
+<%# <% @user.reviews.each do |review|%> %>
+<%# <%= review.content %> %>
+<%# <%= link_to "Delete Comment", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%> %>
+<%# <% end %> %>
 
-<br>
-<br>
+<!-- <br> -->
+<!-- <br> -->
 
 <!-- <div class="buttons"> -->
 <%# <%= link_to "Delete Review", user_review_path(@review.user.id, @review), method: :delete, data: {confirm: "Are you sure?"}%>

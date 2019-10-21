@@ -1,19 +1,19 @@
-<h2> <p> Dear : <%= @review.user.email %> </p></h2>
-<h3> You can create your comment here </h3>
+<!-- <h2> <p> Dear : <%= @review.user.email %> </p></h2> -->
+<!-- <h3> You can create your comment here </h3> -->
 <%# <%= render partial: 'appointment/errors_form' %>
 
-<%= form_for @review, url: user_reviews_path(@review.user_id) do |f| %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<br>
-<%= f.label :hair_stylist %>
-<%= f.collection_select :hair_stylist_id, HairStylist.all, :id, :name%>
-<br>
-<br>
-<%= f.text_area :content, size: "62x8" %>
-<br>
-<br>
-<%= f.submit  %>
-<br>
-<br>
+<%# <%= form_for @review, url: user_reviews_path(@review.user_id) do |f| %> %>
+<%# <%= f.hidden_field :user_id, value: current_user.id %> %>
+<!-- <br> -->
+<%# <%= f.label :hair_stylist %> %>
+<%# <%= f.collection_select :hair_stylist_id, HairStylist.all, :id, :name%> %>
+<!-- <br> -->
+<!-- <br> -->
+<%# <%= f.text_area :content, size: "62x8" %> %>
+<!-- <br> -->
+<!-- <br> -->
+<%# <%= f.submit  %> %>
+<!-- <br> -->
+<!-- <br> -->
 
-<% end  %>
+<%# <% end  %> %>

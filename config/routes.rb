@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   end
 
 
-  resources :reviews
-
   get '/hair_stylists/most', to: 'hair_stylists#most_appointments'
 
   resources :hair_stylists
