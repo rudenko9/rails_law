@@ -1,6 +1,6 @@
 <h1> Your Hair Stylist List </h1>
 <div id='hair_stylists_box'></div>
-
+<button  id="btn"> sort </button>
 <script type="text/javascript">
 
 (function() {
@@ -28,10 +28,18 @@ res.forEach (({name, appointments}) => {
   `
 })
 
-
 })
 .catch(checkStatus)
 
 })()
+
+let btn = document.getElementById('btn')
+btn.addEventListener('click', () =>
+console.log('you clicked here')
+);
+
+
+
+
 
 </script>
