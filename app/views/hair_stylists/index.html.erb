@@ -1,6 +1,7 @@
 <h1> Your Hair Stylist List </h1>
 <div id='hair_stylists_box'></div>
-<button  id="btn"> sort </button>
+<!-- <button  id="btn"> sort </button> -->
+ <button id="textChange"> sort </button>
 <script type="text/javascript">
 
 (function() {
@@ -22,7 +23,7 @@ fetch('http://localhost:3000/hair_stylists.json')
 
  // Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.
 //Your Rails application must reveal at least one `has-many` relationship through JSON that is then rendered to the page.
-res.forEach (({name, appointments}) => {
+  res.forEach (({name, appointments}) => {
   style_listbox.innerHTML += `
   <h4> ${name}, has : <span> ${appointments.length}</span> appointments.</h4>
   `
@@ -33,10 +34,26 @@ res.forEach (({name, appointments}) => {
 
 })()
 
-let btn = document.getElementById('btn')
-btn.addEventListener('click', () =>
-console.log('you clicked here')
-);
+// et btn = document.getElementById('btn')
+// btn.addEventListener('click', () =>
+// console.log('you clicked here')
+// );
+
+
+document.getElementById('textChange').onclick = function () {
+ const container = document.getElementById('hair_stylists_box');
+ //console.log(container)
+  const listOfChildren = [...container.children];
+  console.log(listOfChildren)
+  const alphabetSorted = listOfChildren.sort((a, b) => a.textContent.localeCompare(b.textContent));
+  container.innerHTML = '';
+
+  alphabetSorted.forEach(h4 => container.appendChild(h4));
+
+  };
+
+
+
 
 
 
