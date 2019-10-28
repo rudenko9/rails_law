@@ -34,17 +34,17 @@ fetch('http://localhost:3000/hair_stylists.json')
 
 })()
 
-// et btn = document.getElementById('btn')
+// let btn = document.getElementById('btn')
 // btn.addEventListener('click', () =>
 // console.log('you clicked here')
 // );
 
-
+//JavaScript .sort()
 document.getElementById('textChange').onclick = function () {
  const container = document.getElementById('hair_stylists_box');
  //console.log(container)
   const listOfChildren = [...container.children];
-  console.log(listOfChildren)
+  //console.log(listOfChildren)
   const alphabetSorted = listOfChildren.sort((a, b) => a.textContent.localeCompare(b.textContent));
   container.innerHTML = '';
 
